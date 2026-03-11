@@ -495,7 +495,7 @@ export default function Home() {
                 <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden mb-4 sm:mb-6 border-2 border-[#FAF7F2]">
                   <img src={t.img} alt={t.name} className="w-full h-full object-cover" />
                 </div>
-                <p className="font-display italic text-[#5C554D] text-base sm:text-lg mb-3 sm:mb-4 text-center">"Impeccable legal foresight for our brand's launch."</p>
+                <p className="font-display italic text-[#5C554D] text-base sm:text-lg mb-3 sm:mb-4 text-center">{t.review}</p>
                 <h5 className="text-[11px] uppercase tracking-widest text-[#1A1A1A] font-semibold">— {t.name}</h5>
               </motion.div>
             ))}
