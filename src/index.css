@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: 'DM Sans', sans-serif;
+  --font-display: 'Playfair Display', serif;
+
+  /* The Courtroom of Couture Palette */
+  --background: 40 26% 96%; /* #FAF7F2 */
+  --foreground: 0 0% 10%; /* #1A1A1A */
+  --muted: 36 33% 92%; /* #F3EDE4 */
+  --muted-foreground: 32 9% 33%; /* #5C554D */
+  
+  --primary: 344 41% 30%; /* #6B2D3E (Bordeaux) */
+  --primary-foreground: 0 0% 100%;
+  
+  --secondary: 41 25% 50%; /* #9E8A5F (Gold) */
+  --secondary-foreground: 0 0% 100%;
+  
+  --card: 0 0% 100%; /* #FFFFFF */
+  --card-foreground: 0 0% 10%;
+  
+  --border: 41 25% 85%; /* Gold divider at low opacity equivalent */
+  --input: 41 25% 85%;
+  --ring: 344 41% 30%;
+  
+  --radius: 0rem; /* Sharp, luxury edges */
+}
+
+/* Force light mode globally */
+.dark {
+  --background: 40 26% 96%;
+  --foreground: 0 0% 10%;
+}
+
+@layer base {
+  html {
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+    background-color: #FAF7F2;
+    color: #1A1A1A;
+    overflow-x: hidden;
+    min-width: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+/* Grain Overlay */
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Custom Scrollbar for luxury feel */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF7F2;
+}
+::-webkit-scrollbar-thumb {
+  background: #9E8A5F;
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6B2D3E;
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+.marquee-content:hover {
+  animation-play-state: paused;
+}
+
+/* Emphasized Bordeaux Italics */
+.editorial-italic {
+  @apply italic text-[#6B2D3E] font-medium;
+}
+
+/* Service Divider */
+.service-divider {
+  border-color: rgba(158, 138, 95, 0.2);
+}
+
+/* Form inputs luxury styling */
+.luxury-input {
+  @apply w-full bg-transparent border-b border-[#9E8A5F]/40 py-3 px-0 text-[#1A1A1A] placeholder:text-[#5C554D]/60 focus:outline-none focus:border-[#6B2D3E] transition-colors rounded-none;
+}
